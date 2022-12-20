@@ -33,7 +33,7 @@ public class FileName implements Serializable {
     @NotNull
     private String name;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "descendants")
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "descendant")
     @OnDelete(action = OnDeleteAction.CASCADE)
     private List<TreePath> parents = new ArrayList<>();
 

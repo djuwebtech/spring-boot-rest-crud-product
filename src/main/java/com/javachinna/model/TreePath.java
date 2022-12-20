@@ -33,7 +33,7 @@ public class TreePath implements Serializable{
     @ManyToOne(targetEntity = FileName.class)
     @JoinColumn(name = "descendant", nullable = false, foreignKey = @ForeignKey(name = "FK_DESCENDANT"))
     @JsonIdentityReference(alwaysAsId = true)
-    private FileName descendants;
+    private FileName descendant;
 
     public TreePath() {
 
@@ -41,7 +41,7 @@ public class TreePath implements Serializable{
 
     public TreePath(FileName ancestor, FileName descendant) {
         this.ancestor = ancestor;
-        this.descendants = descendant;
+        this.descendant = descendant;
     }
 
     public FileName getAncestor() {
@@ -53,15 +53,15 @@ public class TreePath implements Serializable{
     }
 
     public FileName getDescendant() {
-        return descendants;
+        return descendant;
     }
 
     public void setDescendant(FileName descendant) {
-        this.descendants = descendant;
+        this.descendant = descendant;
     }
 
-//    @Override
-//    public String toString() {
-//        return "TreePath{" + "ancestor=" + ancestor + ", descendant=" + descendant + '}';
-//    }
+    @Override
+    public String toString() {
+        return "TreePath{" + "ancestor=" + ancestor + ", descendant=" + descendant + '}';
+    }
 }
